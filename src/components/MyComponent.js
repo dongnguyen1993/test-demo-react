@@ -24,16 +24,31 @@ class Mycomponent extends React.Component {
         console.log(event.pageX);
     }
 
+    handleOnChangeInput(event) {
+        this.setState({
+            name: event.target.value
+        })
+    }
+
+    handleOnSubmit(event) {
+        event.preventDefault(); // hàm dùng để ngăn load lại trang của sự kiện submit
+        console.log(this.state)
+    }
+
     render() {
         return (
             <div>
                 My name is {this.state.name} I'm {this.state.age}
                 <div>
                     <button onClick={(event) => { this.handleClick(event) }}  >click me</button>
-                    <button onMouseOver={(event) => { this.handleonMouseOver(event) }}
-                        onClick={(event) => { this.handleClick(event) }}  >hover me</button>
                 </div>
+                <form onSubmit={(event) => { this.handleOnSubmit(event) }}>
+                    <input type="text"
+                        onChange={(event) => { this.handleOnChangeInput(event) }}>
+                    </input>
+                    <button>Submit</button>
 
+                </form>
 
             </div >
         )
