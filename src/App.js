@@ -22,7 +22,9 @@ const App = () => {
         <div className='app-container'>
           <Outlet />
         </div>
+
       </div>
+
     </div>
   );
 }
